@@ -1,4 +1,4 @@
-// HoneyTrip v2
+// HoneyTrip v3
 // Base currency is GBP.
 
 const ratesToGBP = {
@@ -72,10 +72,86 @@ const places = [
   }
 ];
 
+const foods = [
+  {
+    armenian: "Խորոված",
+    persian: "خورواتس / کباب ارمنی",
+    pronounce: "Khorovats",
+    emoji: "🥩",
+    description: "کباب معروف ارمنی، معمولاً با گوشت گوسفند، گاو یا مرغ روی زغال درست می‌شود.",
+    ingredients: "گوشت، پیاز، نمک، فلفل، ادویه، گاهی سبزیجات کبابی",
+    note: "برای نشان دادن به گارسون: Խորոված"
+  },
+  {
+    armenian: "Տոլմա",
+    persian: "دلمه ارمنی",
+    pronounce: "Tolma",
+    emoji: "🍃",
+    description: "شبیه دلمه خودمان؛ معمولاً با برگ انگور یا سبزیجات پرشده.",
+    ingredients: "برگ انگور یا فلفل/بادمجان، گوشت چرخ‌کرده، برنج، سبزی، پیاز، ادویه",
+    note: "برای نشان دادن به گارسون: Տոլմա"
+  },
+  {
+    armenian: "Լավաշ",
+    persian: "نان لواش ارمنی",
+    pronounce: "Lavash",
+    emoji: "🫓",
+    description: "نان نازک و سنتی ارمنی که کنار بیشتر غذاها سرو می‌شود.",
+    ingredients: "آرد، آب، نمک، خمیرمایه",
+    note: "برای نشان دادن به گارسون: Լավաշ"
+  },
+  {
+    armenian: "Հարիսա",
+    persian: "هاریسا",
+    pronounce: "Harissa",
+    emoji: "🍲",
+    description: "غذای سنتی غلیظ شبیه حلیم، معمولاً با گندم و مرغ یا گوشت درست می‌شود.",
+    ingredients: "گندم پوست‌کنده، مرغ یا گوشت، کره، نمک",
+    note: "برای نشان دادن به گارسون: Հարիսա"
+  },
+  {
+    armenian: "Ղափամա",
+    persian: "قاپاما / کدو پرشده",
+    pronounce: "Ghapama",
+    emoji: "🎃",
+    description: "کدوی شکم‌پر ارمنی، معمولاً طعم شیرین و مجلسی دارد.",
+    ingredients: "کدو، برنج، کشمش، زردآلو خشک، آلو، عسل، دارچین، مغزها",
+    note: "برای نشان دادن به گارسون: Ղափամա"
+  },
+  {
+    armenian: "Գաթա",
+    persian: "گاتا / شیرینی ارمنی",
+    pronounce: "Gata",
+    emoji: "🥐",
+    description: "شیرینی سنتی ارمنی، مناسب کنار چای یا قهوه.",
+    ingredients: "آرد، کره، شکر، تخم‌مرغ، وانیل، گاهی مغزها",
+    note: "برای نشان دادن به گارسون: Գաթա"
+  },
+  {
+    armenian: "Սպաս",
+    persian: "سوپ اسپاس",
+    pronounce: "Spas",
+    emoji: "🥣",
+    description: "سوپ ماستی ارمنی، سبک و متفاوت. بعضی نسخه‌ها گرم و بعضی سرد سرو می‌شوند.",
+    ingredients: "ماست، گندم یا بلغور، سبزی، تخم‌مرغ، آب، نمک",
+    note: "برای نشان دادن به گارسون: Սպաս"
+  },
+  {
+    armenian: "Լահմաջո",
+    persian: "لهمجون",
+    pronounce: "Lahmajo",
+    emoji: "🍕",
+    description: "نان نازک با لایه‌ای از گوشت و ادویه، شبیه پیتزای خیلی نازک.",
+    ingredients: "خمیر نازک، گوشت چرخ‌کرده، گوجه، فلفل، پیاز، سبزی، ادویه",
+    note: "برای نشان دادن به گارسون: Լահմաջո"
+  }
+];
+
 const amountInput = document.getElementById("amount");
 const fromCurrencySelect = document.getElementById("fromCurrency");
 const resultsDiv = document.getElementById("results");
 const placesList = document.getElementById("placesList");
+const foodList = document.getElementById("foodList");
 const tabButtons = document.querySelectorAll(".tab-button");
 const pages = document.querySelectorAll(".page");
 
@@ -124,7 +200,6 @@ function renderPlaces() {
   places.forEach(place => {
     const card = document.createElement("article");
     card.className = "place-card";
-
     card.innerHTML = `
       <div class="place-image">${place.emoji}</div>
       <div class="place-content">
@@ -140,6 +215,35 @@ function renderPlaces() {
     `;
 
     placesList.appendChild(card);
+  });
+}
+
+function renderFoods() {
+  foodList.innerHTML = "";
+
+  foods.forEach(food => {
+    const card = document.createElement("article");
+    card.className = "place-card";
+
+    card.innerHTML = `
+      <div class="place-image">${food.emoji}</div>
+      <div class="place-content">
+        <div class="armenian-name">${food.armenian}</div>
+        <h3 class="place-title">${food.persian}</h3>
+        <div class="place-subtitle">${food.pronounce}</div>
+        <div class="show-waiter">به گارسون نشان بده: ${food.armenian}</div>
+        <p class="place-description">${food.description}</p>
+        <div class="ingredients">
+          <strong>مواد اصلی:</strong><br>
+          ${food.ingredients}
+        </div>
+        <div class="place-meta">
+          <div>📝 ${food.note}</div>
+        </div>
+      </div>
+    `;
+
+    foodList.appendChild(card);
   });
 }
 
@@ -160,3 +264,4 @@ fromCurrencySelect.addEventListener("change", convert);
 
 convert();
 renderPlaces();
+renderFoods();
