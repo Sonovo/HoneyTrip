@@ -1,31 +1,15 @@
-# HoneyTrip
+# HoneyTrip v2
 
-Simple mobile-first travel currency converter.
+Simple mobile-first travel currency converter and Yerevan guide.
 
-## Currencies
+## Features
 
-- GBP - UK Pound
-- USD - US Dollar
-- AMD - Armenian Dram
-- TOMAN - Iranian Toman
+- GBP / USD / AMD / Toman converter
+- Persian tab: مکان‌های دیدنی
+- Static Yerevan places list
+- Mobile-first design
+- Dark mode support
 
-## How to test
+## Deploy
 
-Open `index.html` in Safari or Chrome.
-
-## How to update rates
-
-Open `script.js` and update:
-
-```js
-const ratesToGBP = {
-  GBP: 1,
-  USD: 1.33,
-  AMD: 510,
-  TOMAN: 110000
-};
-```
-
-## How to host free
-
-Upload this folder to GitHub, then connect it to Vercel.
+Replace the old files in GitHub with these files. Vercel redeploys automatically.
