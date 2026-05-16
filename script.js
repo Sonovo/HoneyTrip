@@ -1,4 +1,4 @@
-// HoneyTrip v3
+// HoneyTrip v4
 // Base currency is GBP.
 
 const ratesToGBP = {
@@ -77,73 +77,65 @@ const foods = [
     armenian: "Խորոված",
     persian: "خورواتس / کباب ارمنی",
     pronounce: "Khorovats",
-    emoji: "🥩",
+    image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1000&q=80",
     description: "کباب معروف ارمنی، معمولاً با گوشت گوسفند، گاو یا مرغ روی زغال درست می‌شود.",
-    ingredients: "گوشت، پیاز، نمک، فلفل، ادویه، گاهی سبزیجات کبابی",
-    note: "برای نشان دادن به گارسون: Խորոված"
+    ingredients: "گوشت، پیاز، نمک، فلفل، ادویه، گاهی سبزیجات کبابی"
   },
   {
     armenian: "Տոլմա",
     persian: "دلمه ارمنی",
     pronounce: "Tolma",
-    emoji: "🍃",
+    image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=1000&q=80",
     description: "شبیه دلمه خودمان؛ معمولاً با برگ انگور یا سبزیجات پرشده.",
-    ingredients: "برگ انگور یا فلفل/بادمجان، گوشت چرخ‌کرده، برنج، سبزی، پیاز، ادویه",
-    note: "برای نشان دادن به گارسون: Տոլմա"
+    ingredients: "برگ انگور یا فلفل/بادمجان، گوشت چرخ‌کرده، برنج، سبزی، پیاز، ادویه"
   },
   {
     armenian: "Լավաշ",
     persian: "نان لواش ارمنی",
     pronounce: "Lavash",
-    emoji: "🫓",
+    image: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=1000&q=80",
     description: "نان نازک و سنتی ارمنی که کنار بیشتر غذاها سرو می‌شود.",
-    ingredients: "آرد، آب، نمک، خمیرمایه",
-    note: "برای نشان دادن به گارسون: Լավաշ"
+    ingredients: "آرد، آب، نمک، خمیرمایه"
   },
   {
     armenian: "Հարիսա",
     persian: "هاریسا",
     pronounce: "Harissa",
-    emoji: "🍲",
+    image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=1000&q=80",
     description: "غذای سنتی غلیظ شبیه حلیم، معمولاً با گندم و مرغ یا گوشت درست می‌شود.",
-    ingredients: "گندم پوست‌کنده، مرغ یا گوشت، کره، نمک",
-    note: "برای نشان دادن به گارسون: Հարիսա"
+    ingredients: "گندم پوست‌کنده، مرغ یا گوشت، کره، نمک"
   },
   {
     armenian: "Ղափամա",
     persian: "قاپاما / کدو پرشده",
     pronounce: "Ghapama",
-    emoji: "🎃",
+    image: "https://images.unsplash.com/photo-1506917728037-b6af01a7d403?auto=format&fit=crop&w=1000&q=80",
     description: "کدوی شکم‌پر ارمنی، معمولاً طعم شیرین و مجلسی دارد.",
-    ingredients: "کدو، برنج، کشمش، زردآلو خشک، آلو، عسل، دارچین، مغزها",
-    note: "برای نشان دادن به گارسون: Ղափամա"
+    ingredients: "کدو، برنج، کشمش، زردآلو خشک، آلو، عسل، دارچین، مغزها"
   },
   {
     armenian: "Գաթա",
     persian: "گاتا / شیرینی ارمنی",
     pronounce: "Gata",
-    emoji: "🥐",
+    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=80",
     description: "شیرینی سنتی ارمنی، مناسب کنار چای یا قهوه.",
-    ingredients: "آرد، کره، شکر، تخم‌مرغ، وانیل، گاهی مغزها",
-    note: "برای نشان دادن به گارسون: Գաթա"
+    ingredients: "آرد، کره، شکر، تخم‌مرغ، وانیل، گاهی مغزها"
   },
   {
     armenian: "Սպաս",
     persian: "سوپ اسپاس",
     pronounce: "Spas",
-    emoji: "🥣",
+    image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=80",
     description: "سوپ ماستی ارمنی، سبک و متفاوت. بعضی نسخه‌ها گرم و بعضی سرد سرو می‌شوند.",
-    ingredients: "ماست، گندم یا بلغور، سبزی، تخم‌مرغ، آب، نمک",
-    note: "برای نشان دادن به گارسون: Սպաս"
+    ingredients: "ماست، گندم یا بلغور، سبزی، تخم‌مرغ، آب، نمک"
   },
   {
     armenian: "Լահմաջո",
     persian: "لهمجون",
     pronounce: "Lahmajo",
-    emoji: "🍕",
+    image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1000&q=80",
     description: "نان نازک با لایه‌ای از گوشت و ادویه، شبیه پیتزای خیلی نازک.",
-    ingredients: "خمیر نازک، گوشت چرخ‌کرده، گوجه، فلفل، پیاز، سبزی، ادویه",
-    note: "برای نشان دادن به گارسون: Լահմաջո"
+    ingredients: "خمیر نازک، گوشت چرخ‌کرده، گوجه، فلفل، پیاز، سبزی، ادویه"
   }
 ];
 
@@ -226,19 +218,17 @@ function renderFoods() {
     card.className = "place-card";
 
     card.innerHTML = `
-      <div class="place-image">${food.emoji}</div>
+      <div class="place-image">
+        <img src="${food.image}" alt="${food.persian}" loading="lazy">
+      </div>
       <div class="place-content">
         <div class="armenian-name">${food.armenian}</div>
         <h3 class="place-title">${food.persian}</h3>
         <div class="place-subtitle">${food.pronounce}</div>
-        <div class="show-waiter">به گارسون نشان بده: ${food.armenian}</div>
         <p class="place-description">${food.description}</p>
         <div class="ingredients">
           <strong>مواد اصلی:</strong><br>
           ${food.ingredients}
-        </div>
-        <div class="place-meta">
-          <div>📝 ${food.note}</div>
         </div>
       </div>
     `;
