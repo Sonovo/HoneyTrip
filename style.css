@@ -48,16 +48,22 @@ h1 {
 
 .tabs {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 10px;
   margin: 0 0 16px;
+}
+
+@media (min-width: 430px) {
+  .tabs {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 .tab-button {
   border: 0;
   border-radius: 18px;
   padding: 14px 12px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 800;
   background: rgba(255, 255, 255, 0.55);
   color: #6b7280;
@@ -216,6 +222,8 @@ select {
   color: #6b7280;
   margin: 4px 0 10px;
   font-size: 14px;
+  direction: ltr;
+  text-align: right;
 }
 
 .place-description {
@@ -242,6 +250,33 @@ select {
   border-radius: 14px;
   font-weight: 800;
   font-size: 14px;
+}
+
+.armenian-name {
+  direction: ltr;
+  text-align: right;
+  font-size: 23px;
+  font-weight: 900;
+  margin-bottom: 4px;
+}
+
+.show-waiter {
+  display: inline-block;
+  background: #fff7d6;
+  color: #7c4a03;
+  padding: 8px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 800;
+  margin: 4px 0 12px;
+}
+
+.ingredients {
+  background: rgba(255, 211, 77, 0.16);
+  border-radius: 16px;
+  padding: 12px;
+  line-height: 1.8;
+  margin-bottom: 12px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -292,5 +327,14 @@ select {
   .map-link {
     background: #f9fafb;
     color: #111827;
+  }
+
+  .show-waiter {
+    background: rgba(255, 211, 77, 0.16);
+    color: #ffd34d;
+  }
+
+  .ingredients {
+    background: rgba(255, 211, 77, 0.10);
   }
 }
