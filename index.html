@@ -17,6 +17,7 @@
     <nav class="tabs">
       <button class="tab-button active" data-page="converterPage">Currency</button>
       <button class="tab-button" data-page="placesPage">مکان‌های دیدنی</button>
+      <button class="tab-button" data-page="foodPage">غذاهای ارمنی</button>
     </nav>
 
     <section id="converterPage" class="page active">
@@ -36,23 +37,27 @@
       <section class="results" id="results"></section>
 
       <section class="note">
-        <p>Rates are manual for v1. Update them in <strong>script.js</strong> whenever needed.</p>
+        <p>Rates are manual. Update them in <strong>script.js</strong> whenever needed.</p>
       </section>
     </section>
 
     <section id="placesPage" class="page">
       <div class="farsi-header" dir="rtl">
         <h2>مکان‌های دیدنی ایروان</h2>
-        <p>چند جای معروف برای شروع سفر. بعداً می‌توانیم عکس‌های بهتر، قیمت بلیط، ساعت کاری و مسیر نقشه را هم اضافه کنیم.</p>
+        <p>چند جای معروف برای شروع سفر. بعداً می‌توانیم عکس‌های واقعی، قیمت بلیط، ساعت کاری و مسیر نقشه را هم اضافه کنیم.</p>
       </div>
-
       <section class="places-list" id="placesList" dir="rtl"></section>
+    </section>
+
+    <section id="foodPage" class="page">
+      <div class="farsi-header" dir="rtl">
+        <h2>غذاهای ارمنی</h2>
+        <p>اسم غذا به زبان ارمنی نوشته شده تا بتوانی به گارسون نشان بدهی. مواد اصلی هم فارسی نوشته شده.</p>
+      </div>
+      <section class="places-list" id="foodList" dir="rtl"></section>
     </section>
   </main>
 
-  <script src="script.js"></script>
-</body>
-</html>
   <script src="script.js"></script>
 </body>
 </html>
