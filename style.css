@@ -1,337 +1,258 @@
-* {
-  box-sizing: border-box;
-}
+// HoneyTrip v5
+// Base currency is GBP.
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: radial-gradient(circle at top, #fff4c7, #f6f7fb 45%, #eef1f6);
-  color: #1f2937;
-  min-height: 100vh;
-}
+const ratesToGBP = {
+  GBP: 1,
+  USD: 1.33,
+  AMD: 490.80,
+  TOMAN: 239910
+};
 
-.app {
-  width: min(100%, 520px);
-  margin: 0 auto;
-  padding: 28px 18px 40px;
-}
+const currencies = [
+  { code: "GBP", name: "UK Pound", flag: "🇬🇧", symbol: "£", decimals: 2 },
+  { code: "USD", name: "US Dollar", flag: "🇺🇸", symbol: "$", decimals: 2 },
+  { code: "AMD", name: "Armenian Dram", flag: "🇦🇲", symbol: "֏", decimals: 0 },
+  { code: "TOMAN", name: "Iranian Toman", flag: "🇮🇷", symbol: "", decimals: 0 }
+];
 
-.hero {
-  text-align: center;
-  margin-bottom: 18px;
-}
-
-.logo {
-  width: 72px;
-  height: 72px;
-  margin: 0 auto 12px;
-  border-radius: 24px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, #ffd34d, #ff9f1c);
-  font-size: 34px;
-  box-shadow: 0 18px 40px rgba(255, 159, 28, 0.28);
-}
-
-h1 {
-  margin: 0;
-  font-size: 34px;
-  letter-spacing: -0.7px;
-}
-
-.hero p {
-  margin: 8px auto 0;
-  max-width: 350px;
-  color: #6b7280;
-  line-height: 1.45;
-}
-
-.tabs {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  margin: 0 0 16px;
-}
-
-@media (min-width: 430px) {
-  .tabs {
-    grid-template-columns: 1fr 1fr 1fr;
+const places = [
+  {
+    title: "میدان جمهوری",
+    subtitle: "Republic Square",
+    emoji: "🏛️",
+    description: "یکی از معروف‌ترین نقاط ایروان. برای قدم زدن، عکس گرفتن و دیدن فواره‌های موزیکال در شب خیلی محبوب است.",
+    time: "زمان پیشنهادی: عصر یا شب",
+    cost: "هزینه: رایگان",
+    map: "https://www.google.com/maps/search/?api=1&query=Republic+Square+Yerevan"
+  },
+  {
+    title: "کاسکاد",
+    subtitle: "Cascade Complex",
+    emoji: "⛰️",
+    description: "پله‌های بزرگ و معروف ایروان با منظره‌ی خوب از شهر. اطرافش کافه، مجسمه و فضای هنری دارد.",
+    time: "زمان پیشنهادی: نزدیک غروب",
+    cost: "هزینه: رایگان",
+    map: "https://www.google.com/maps/search/?api=1&query=Cascade+Complex+Yerevan"
+  },
+  {
+    title: "ماتناداران",
+    subtitle: "Matenadaran",
+    emoji: "📜",
+    description: "موزه و مرکز نسخه‌های خطی قدیمی ارمنستان. برای کسانی که تاریخ و فرهنگ دوست دارند جای خاصی است.",
+    time: "زمان پیشنهادی: روز",
+    cost: "هزینه: معمولاً بلیط دارد",
+    map: "https://www.google.com/maps/search/?api=1&query=Matenadaran+Yerevan"
+  },
+  {
+    title: "بازار ورنیساژ",
+    subtitle: "Vernissage Market",
+    emoji: "🛍️",
+    description: "بازار روباز برای خرید سوغاتی، صنایع دستی، نقاشی، فرش کوچک و چیزهای سنتی ارمنی.",
+    time: "زمان پیشنهادی: آخر هفته و روز",
+    cost: "هزینه: رایگان برای ورود",
+    map: "https://www.google.com/maps/search/?api=1&query=Vernissage+Market+Yerevan"
+  },
+  {
+    title: "مسجد کبود ایروان",
+    subtitle: "Blue Mosque",
+    emoji: "🕌",
+    description: "یکی از مکان‌های تاریخی و آرام شهر که برای ایرانی‌ها هم حس آشنایی دارد.",
+    time: "زمان پیشنهادی: روز",
+    cost: "هزینه: معمولاً رایگان",
+    map: "https://www.google.com/maps/search/?api=1&query=Blue+Mosque+Yerevan"
+  },
+  {
+    title: "موزه تاریخ ارمنستان",
+    subtitle: "History Museum of Armenia",
+    emoji: "🏺",
+    description: "کنار میدان جمهوری قرار دارد و برای شناخت تاریخ و فرهنگ ارمنستان گزینه‌ی خوبی است.",
+    time: "زمان پیشنهادی: روز",
+    cost: "هزینه: معمولاً بلیط دارد",
+    map: "https://www.google.com/maps/search/?api=1&query=History+Museum+of+Armenia+Yerevan"
   }
-}
+];
 
-.tab-button {
-  border: 0;
-  border-radius: 18px;
-  padding: 14px 12px;
-  font-size: 15px;
-  font-weight: 800;
-  background: rgba(255, 255, 255, 0.55);
-  color: #6b7280;
-  box-shadow: 0 10px 30px rgba(31, 41, 55, 0.06);
-}
-
-.tab-button.active {
-  background: linear-gradient(135deg, #ffd34d, #ff9f1c);
-  color: #111827;
-}
-
-.page {
-  display: none;
-}
-
-.page.active {
-  display: block;
-}
-
-.converter-card,
-.result-card,
-.note,
-.place-card,
-.farsi-header {
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(18px);
-  border-radius: 24px;
-  box-shadow: 0 18px 50px rgba(31, 41, 55, 0.08);
-}
-
-.converter-card {
-  padding: 18px;
-  margin-bottom: 16px;
-}
-
-label {
-  display: block;
-  font-size: 13px;
-  font-weight: 700;
-  color: #6b7280;
-  margin: 4px 0 8px;
-}
-
-input,
-select {
-  width: 100%;
-  border: 0;
-  outline: 0;
-  border-radius: 18px;
-  padding: 16px;
-  font-size: 22px;
-  background: #f3f4f6;
-  color: #111827;
-  margin-bottom: 16px;
-}
-
-select {
-  font-size: 18px;
-  appearance: none;
-}
-
-.results {
-  display: grid;
-  gap: 12px;
-}
-
-.result-card {
-  padding: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.currency-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.flag {
-  font-size: 30px;
-}
-
-.currency-name {
-  font-weight: 800;
-  font-size: 16px;
-}
-
-.currency-code {
-  color: #6b7280;
-  font-size: 13px;
-  margin-top: 2px;
-}
-
-.value {
-  text-align: right;
-  font-weight: 900;
-  font-size: 20px;
-  color: #111827;
-}
-
-.note {
-  margin-top: 16px;
-  padding: 14px 16px;
-  color: #6b7280;
-  font-size: 13px;
-  line-height: 1.45;
-}
-
-.farsi-header {
-  padding: 18px;
-  margin-bottom: 14px;
-}
-
-.farsi-header h2 {
-  margin: 0 0 8px;
-  font-size: 24px;
-}
-
-.farsi-header p {
-  margin: 0;
-  color: #6b7280;
-  line-height: 1.8;
-  font-size: 15px;
-}
-
-.places-list {
-  display: grid;
-  gap: 14px;
-}
-
-.place-card {
-  overflow: hidden;
-}
-
-.place-image {
-  height: 185px;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  background: linear-gradient(135deg, #fff1b8, #ffd166);
-}
-
-.place-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.place-content {
-  padding: 16px;
-}
-
-.place-title {
-  margin: 0;
-  font-size: 21px;
-  font-weight: 900;
-}
-
-.place-subtitle {
-  color: #6b7280;
-  margin: 4px 0 10px;
-  font-size: 14px;
-  direction: ltr;
-  text-align: right;
-}
-
-.place-description {
-  margin: 0 0 12px;
-  line-height: 1.8;
-  color: #374151;
-  font-size: 15px;
-}
-
-.place-meta {
-  display: grid;
-  gap: 6px;
-  margin-bottom: 14px;
-  color: #4b5563;
-  font-size: 14px;
-}
-
-.map-link {
-  display: inline-block;
-  text-decoration: none;
-  background: #111827;
-  color: #fff;
-  padding: 10px 14px;
-  border-radius: 14px;
-  font-weight: 800;
-  font-size: 14px;
-}
-
-.armenian-name {
-  direction: ltr;
-  text-align: right;
-  font-size: 34px;
-  line-height: 1.2;
-  font-weight: 950;
-  margin-bottom: 8px;
-  color: #d99a00;
-  letter-spacing: -0.5px;
-}
-
-.ingredients {
-  background: rgba(255, 211, 77, 0.16);
-  border-radius: 16px;
-  padding: 12px;
-  line-height: 1.8;
-  margin-top: 12px;
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background: radial-gradient(circle at top, #43320b, #111827 45%, #020617);
-    color: #f9fafb;
+const foods = [
+  {
+    armenian: "Խորոված",
+    persian: "خورواتس / کباب ارمنی",
+    pronounce: "Khorovats",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Armenian%20khorovats%20barbecue%20on%20grill.jpg",
+    description: "کباب معروف ارمنی، معمولاً با گوشت گوسفند، گاو یا مرغ روی زغال درست می‌شود.",
+    ingredients: "گوشت، پیاز، نمک، فلفل، ادویه، گاهی سبزیجات کبابی"
+  },
+  {
+    armenian: "Տոլմա",
+    persian: "دلمه ارمنی",
+    pronounce: "Tolma",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Dolma%20in%20Armenia.jpg",
+    description: "شبیه دلمه خودمان؛ معمولاً با برگ انگور یا سبزیجات پرشده.",
+    ingredients: "برگ انگور یا فلفل/بادمجان، گوشت چرخ‌کرده، برنج، سبزی، پیاز، ادویه"
+  },
+  {
+    armenian: "Լավաշ",
+    persian: "نان لواش ارمنی",
+    pronounce: "Lavash",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Lavash%20arm%C3%A9nien.jpg",
+    description: "نان نازک و سنتی ارمنی که کنار بیشتر غذاها سرو می‌شود.",
+    ingredients: "آرد، آب، نمک، خمیرمایه"
+  },
+  {
+    armenian: "Հարիսա",
+    persian: "هاریسا",
+    pronounce: "Harissa",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Armenian%20Harisa.JPG",
+    description: "غذای سنتی غلیظ شبیه حلیم، معمولاً با گندم و مرغ یا گوشت درست می‌شود.",
+    ingredients: "گندم پوست‌کنده، مرغ یا گوشت، کره، نمک"
+  },
+  {
+    armenian: "Ղափամա",
+    persian: "قاپاما / کدو پرشده",
+    pronounce: "Ghapama",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Ghapama.jpg",
+    description: "کدوی شکم‌پر ارمنی، معمولاً طعم شیرین و مجلسی دارد.",
+    ingredients: "کدو، برنج، کشمش، زردآلو خشک، آلو، عسل، دارچین، مغزها"
+  },
+  {
+    armenian: "Գաթա",
+    persian: "گاتا / شیرینی ارمنی",
+    pronounce: "Gata",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Armenian%20Gata%20in%20slices%20%281%29.jpg",
+    description: "شیرینی سنتی ارمنی، مناسب کنار چای یا قهوه.",
+    ingredients: "آرد، کره، شکر، تخم‌مرغ، وانیل، گاهی مغزها"
+  },
+  {
+    armenian: "Սպաս",
+    persian: "سوپ اسپاس",
+    pronounce: "Spas",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Armenian%20Spas%20Soup.jpg",
+    description: "سوپ ماستی ارمنی، سبک و متفاوت. بعضی نسخه‌ها گرم و بعضی سرد سرو می‌شوند.",
+    ingredients: "ماست، گندم یا بلغور، سبزی، تخم‌مرغ، آب، نمک"
+  },
+  {
+    armenian: "Լահմաջո",
+    persian: "لهمجون",
+    pronounce: "Lahmajo",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Armenian%20lahmacun%20%282%29.JPG",
+    description: "نان نازک با لایه‌ای از گوشت و ادویه، شبیه پیتزای خیلی نازک.",
+    ingredients: "خمیر نازک، گوشت چرخ‌کرده، گوجه، فلفل، پیاز، سبزی، ادویه"
   }
+];
 
-  .hero p,
-  label,
-  .currency-code,
-  .note,
-  .farsi-header p,
-  .place-subtitle,
-  .place-meta {
-    color: #9ca3af;
-  }
+const amountInput = document.getElementById("amount");
+const fromCurrencySelect = document.getElementById("fromCurrency");
+const resultsDiv = document.getElementById("results");
+const placesList = document.getElementById("placesList");
+const foodList = document.getElementById("foodList");
+const tabButtons = document.querySelectorAll(".tab-button");
+const pages = document.querySelectorAll(".page");
 
-  .converter-card,
-  .result-card,
-  .note,
-  .place-card,
-  .farsi-header {
-    background: rgba(17, 24, 39, 0.78);
-    border-color: rgba(255, 255, 255, 0.08);
-  }
-
-  input,
-  select {
-    background: #1f2937;
-    color: #f9fafb;
-  }
-
-  .value,
-  .place-description {
-    color: #f9fafb;
-  }
-
-  .tab-button {
-    background: rgba(17, 24, 39, 0.72);
-    color: #9ca3af;
-  }
-
-  .tab-button.active {
-    color: #111827;
-  }
-
-  .map-link {
-    background: #f9fafb;
-    color: #111827;
-  }
-
-  .armenian-name {
-    color: #ffd34d;
-  }
-
-  .ingredients {
-    background: rgba(255, 211, 77, 0.10);
-  }
+function formatNumber(value, decimals) {
+  return new Intl.NumberFormat("en-GB", {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals
+  }).format(value);
 }
+
+function convert() {
+  const amount = Number(amountInput.value) || 0;
+  const fromCode = fromCurrencySelect.value;
+  const fromRate = ratesToGBP[fromCode];
+  const amountInGBP = amount / fromRate;
+
+  resultsDiv.innerHTML = "";
+
+  currencies.forEach(currency => {
+    const convertedValue = amountInGBP * ratesToGBP[currency.code];
+    const formattedValue = formatNumber(convertedValue, currency.decimals);
+    const displayValue = currency.symbol
+      ? `${currency.symbol}${formattedValue}`
+      : `${formattedValue} Toman`;
+
+    const card = document.createElement("div");
+    card.className = "result-card";
+    card.innerHTML = `
+      <div class="currency-left">
+        <div class="flag">${currency.flag}</div>
+        <div>
+          <div class="currency-name">${currency.name}</div>
+          <div class="currency-code">${currency.code}</div>
+        </div>
+      </div>
+      <div class="value">${displayValue}</div>
+    `;
+
+    resultsDiv.appendChild(card);
+  });
+}
+
+function renderPlaces() {
+  placesList.innerHTML = "";
+
+  places.forEach(place => {
+    const card = document.createElement("article");
+    card.className = "place-card";
+    card.innerHTML = `
+      <div class="place-image emoji-image">${place.emoji}</div>
+      <div class="place-content">
+        <h3 class="place-title">${place.title}</h3>
+        <div class="place-subtitle">${place.subtitle}</div>
+        <p class="place-description">${place.description}</p>
+        <div class="place-meta">
+          <div>🕒 ${place.time}</div>
+          <div>💰 ${place.cost}</div>
+        </div>
+        <a class="map-link" href="${place.map}" target="_blank" rel="noopener">باز کردن در نقشه</a>
+      </div>
+    `;
+
+    placesList.appendChild(card);
+  });
+}
+
+function renderFoods() {
+  foodList.innerHTML = "";
+
+  foods.forEach(food => {
+    const card = document.createElement("article");
+    card.className = "place-card";
+
+    card.innerHTML = `
+      <div class="place-image">
+        <img src="${food.image}" alt="${food.persian}" loading="lazy">
+      </div>
+      <div class="place-content">
+        <div class="armenian-name">${food.armenian}</div>
+        <div class="food-divider"></div>
+        <h3 class="food-persian-name">${food.persian}</h3>
+        <div class="food-pronounce">${food.pronounce}</div>
+        <p class="place-description">${food.description}</p>
+        <div class="ingredients">
+          <strong>مواد اولیه:</strong><br>
+          ${food.ingredients}
+        </div>
+      </div>
+    `;
+
+    foodList.appendChild(card);
+  });
+}
+
+tabButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    const pageId = button.dataset.page;
+
+    tabButtons.forEach(tab => tab.classList.remove("active"));
+    pages.forEach(page => page.classList.remove("active"));
+
+    button.classList.add("active");
+    document.getElementById(pageId).classList.add("active");
+  });
+});
+
+amountInput.addEventListener("input", convert);
+fromCurrencySelect.addEventListener("change", convert);
+
+convert();
+renderPlaces();
+renderFoods();
