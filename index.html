@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HoneyTrip Currency Converter</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <div class="logo">🍯✈️</div>
+      <h1>HoneyTrip</h1>
+      <p>Simple travel currency converter for UK, Armenia, Iran and US.</p>
+    </section>
+
+    <section class="converter-card">
+      <label for="amount">Enter amount</label>
+      <input id="amount" type="number" inputmode="decimal" placeholder="100" value="100" />
+
+      <label for="fromCurrency">From currency</label>
+      <select id="fromCurrency">
+        <option value="GBP">🇬🇧 UK Pound</option>
+        <option value="USD">🇺🇸 US Dollar</option>
+        <option value="AMD">🇦🇲 Armenian Dram</option>
+        <option value="TOMAN">🇮🇷 Iranian Toman</option>
+      </select>
+    </section>
+
+    <section class="results" id="results"></section>
+
+    <section class="note">
+      <p>Rates are manual for v1. Update them in <strong>script.js</strong> whenever needed.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
