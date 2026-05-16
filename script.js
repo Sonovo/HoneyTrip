@@ -1,4 +1,4 @@
-// HoneyTrip v5
+// HoneyTrip v6
 // Base currency is GBP.
 
 const ratesToGBP = {
@@ -77,6 +77,7 @@ const foods = [
     armenian: "Խորոված",
     persian: "خورواتس / کباب ارمنی",
     pronounce: "Khorovats",
+    emoji: "🥩",
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Armenian%20khorovats%20barbecue%20on%20grill.jpg",
     description: "کباب معروف ارمنی، معمولاً با گوشت گوسفند، گاو یا مرغ روی زغال درست می‌شود.",
     ingredients: "گوشت، پیاز، نمک، فلفل، ادویه، گاهی سبزیجات کبابی"
@@ -85,14 +86,16 @@ const foods = [
     armenian: "Տոլմա",
     persian: "دلمه ارمنی",
     pronounce: "Tolma",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Dolma%20in%20Armenia.jpg",
-    description: "شبیه دلمه خودمان؛ معمولاً با برگ انگور یا سبزیجات پرشده.",
-    ingredients: "برگ انگور یا فلفل/بادمجان، گوشت چرخ‌کرده، برنج، سبزی، پیاز، ادویه"
+    emoji: "🍃",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Yalanchi%20sarma.jpg",
+    description: "دلمه برگ مو یا سبزیجات پرشده؛ یکی از غذاهای آشنای منطقه و محبوب در ارمنستان.",
+    ingredients: "برگ انگور، گوشت چرخ‌کرده یا نسخه گیاهی، برنج، سبزی، پیاز، ادویه"
   },
   {
     armenian: "Լավաշ",
     persian: "نان لواش ارمنی",
     pronounce: "Lavash",
+    emoji: "🫓",
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Lavash%20arm%C3%A9nien.jpg",
     description: "نان نازک و سنتی ارمنی که کنار بیشتر غذاها سرو می‌شود.",
     ingredients: "آرد، آب، نمک، خمیرمایه"
@@ -101,6 +104,7 @@ const foods = [
     armenian: "Հարիսա",
     persian: "هاریسا",
     pronounce: "Harissa",
+    emoji: "🍲",
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Armenian%20Harisa.JPG",
     description: "غذای سنتی غلیظ شبیه حلیم، معمولاً با گندم و مرغ یا گوشت درست می‌شود.",
     ingredients: "گندم پوست‌کنده، مرغ یا گوشت، کره، نمک"
@@ -109,6 +113,7 @@ const foods = [
     armenian: "Ղափամա",
     persian: "قاپاما / کدو پرشده",
     pronounce: "Ghapama",
+    emoji: "🎃",
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Ghapama.jpg",
     description: "کدوی شکم‌پر ارمنی، معمولاً طعم شیرین و مجلسی دارد.",
     ingredients: "کدو، برنج، کشمش، زردآلو خشک، آلو، عسل، دارچین، مغزها"
@@ -117,6 +122,7 @@ const foods = [
     armenian: "Գաթա",
     persian: "گاتا / شیرینی ارمنی",
     pronounce: "Gata",
+    emoji: "🥐",
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Armenian%20Gata%20in%20slices%20%281%29.jpg",
     description: "شیرینی سنتی ارمنی، مناسب کنار چای یا قهوه.",
     ingredients: "آرد، کره، شکر، تخم‌مرغ، وانیل، گاهی مغزها"
@@ -125,6 +131,7 @@ const foods = [
     armenian: "Սպաս",
     persian: "سوپ اسپاس",
     pronounce: "Spas",
+    emoji: "🥣",
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Armenian%20Spas%20Soup.jpg",
     description: "سوپ ماستی ارمنی، سبک و متفاوت. بعضی نسخه‌ها گرم و بعضی سرد سرو می‌شوند.",
     ingredients: "ماست، گندم یا بلغور، سبزی، تخم‌مرغ، آب، نمک"
@@ -133,9 +140,73 @@ const foods = [
     armenian: "Լահմաջո",
     persian: "لهمجون",
     pronounce: "Lahmajo",
+    emoji: "🍕",
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Armenian%20lahmacun%20%282%29.JPG",
     description: "نان نازک با لایه‌ای از گوشت و ادویه، شبیه پیتزای خیلی نازک.",
     ingredients: "خمیر نازک، گوشت چرخ‌کرده، گوجه، فلفل، پیاز، سبزی، ادویه"
+  },
+  {
+    armenian: "Ժենգյալով հաց",
+    persian: "ژینگیالوف هاتس / نان سبزیجات",
+    pronounce: "Zhingyalov Hats",
+    emoji: "🌿",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Jengyalov%20Hac.JPG",
+    description: "نان نازک پرشده با سبزی‌های مختلف؛ بیشتر با منطقه آرتساخ شناخته می‌شود و در ارمنستان هم پیدا می‌شود.",
+    ingredients: "خمیر نازک، سبزیجات معطر، اسفناج یا تره، نمک، کمی روغن"
+  },
+  {
+    armenian: "Մանթի",
+    persian: "مانتی",
+    pronounce: "Manti",
+    emoji: "🥟",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Manti%20in%20a%20bowl.jpg",
+    description: "خمیرهای کوچک پرشده با گوشت که معمولاً با ماست یا سس سرو می‌شود.",
+    ingredients: "خمیر، گوشت چرخ‌کرده، پیاز، ادویه، ماست یا سس"
+  },
+  {
+    armenian: "Բաստուրմա",
+    persian: "باستورما",
+    pronounce: "Basturma",
+    emoji: "🥓",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Pastirma.jpg",
+    description: "گوشت خشک و ادویه‌دار با طعم قوی؛ معمولاً به صورت ورقه‌ای سرو می‌شود.",
+    ingredients: "گوشت گاو خشک‌شده، سیر، فلفل، ادویه مخصوص"
+  },
+  {
+    armenian: "Սուջուխ",
+    persian: "سوجوخ",
+    pronounce: "Sujukh",
+    emoji: "🌭",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Sujuk.jpg",
+    description: "سوسیس خشک و ادویه‌دار که در منطقه قفقاز و ارمنستان محبوب است.",
+    ingredients: "گوشت، فلفل، سیر، نمک، ادویه"
+  },
+  {
+    armenian: "Խաշ",
+    persian: "خاش",
+    pronounce: "Khash",
+    emoji: "🍖",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Khash%20dish.jpg",
+    description: "غذای سنتی سنگین که معمولاً صبح زود و در فصل سرد خورده می‌شود.",
+    ingredients: "پاچه یا قسمت‌های ژلاتینی گوشت، سیر، نمک، نان خشک"
+  },
+  {
+    armenian: "Փախլավա",
+    persian: "باقلوا ارمنی",
+    pronounce: "Pakhlava",
+    emoji: "🍯",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Baklava%281%29.png",
+    description: "شیرینی لایه‌ای با مغزها و شربت شیرین؛ برای چای عالی است.",
+    ingredients: "خمیر لایه‌ای، گردو یا پسته، شکر، عسل یا شربت"
+  },
+  {
+    armenian: "Պոնչիկ",
+    persian: "پونچیک",
+    pronounce: "Ponchik",
+    emoji: "🍩",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Ponchik.jpg",
+    description: "شیرینی شبیه دونات، معمولاً با کرم یا مربا پر می‌شود.",
+    ingredients: "آرد، تخم‌مرغ، شیر، شکر، روغن، کرم یا مربا"
   }
 ];
 
@@ -219,7 +290,8 @@ function renderFoods() {
 
     card.innerHTML = `
       <div class="place-image">
-        <img src="${food.image}" alt="${food.persian}" loading="lazy">
+        <img src="${food.image}" alt="${food.persian}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+        <div class="image-fallback">${food.emoji}</div>
       </div>
       <div class="place-content">
         <div class="armenian-name">${food.armenian}</div>
