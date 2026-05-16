@@ -5,8 +5,8 @@
 const ratesToGBP = {
   GBP: 1,
   USD: 1.33,
-  AMD: 510,
-  TOMAN: 110000
+  AMD: 490.80,
+  TOMAN: 239910
 };
 
 const currencies = [
