@@ -1,4 +1,4 @@
-# HoneyTrip v2
+# HoneyTrip v3
 
 Simple mobile-first travel currency converter and Yerevan guide.
 
@@ -6,7 +6,9 @@ Simple mobile-first travel currency converter and Yerevan guide.
 
 - GBP / USD / AMD / Toman converter
 - Persian tab: مکان‌های دیدنی
-- Static Yerevan places list
+- Food tab: غذاهای ارمنی
+- Armenian food names to show restaurant waiters
+- Ingredients in Persian
 - Mobile-first design
 - Dark mode support
 
