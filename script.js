@@ -10,9 +10,9 @@ const ratesToGBP = {
 
 const currencies = [
   { code: "GBP", name: "UK Pound", flag: "🇬🇧", symbol: "£", decimals: 2 },
+  { code: "TOMAN", name: "Iranian Toman", flag: "🇮🇷", symbol: "", decimals: 0 },
   { code: "USD", name: "US Dollar", flag: "🇺🇸", symbol: "$", decimals: 2 },
-  { code: "AMD", name: "Armenian Dram", flag: "🇦🇲", symbol: "֏", decimals: 0 },
-  { code: "TOMAN", name: "Iranian Toman", flag: "🇮🇷", symbol: "", decimals: 0 }
+  { code: "AMD", name: "Armenian Dram", flag: "🇦🇲", symbol: "֏", decimals: 0 }
 ];
 
 const places = [
